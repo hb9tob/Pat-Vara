@@ -286,9 +286,7 @@ func (m *Modem) handleCmd(c string) {
 		// nothing to do
 	case "PENDING":
 		// nothing to do
-	case "BITRATE":
-		debugPrint("got BITRATE")
-		// nothing to do
+
 	case "CANCELPENDING":
 		// nothing to do
 	case "LINK UNREGISTERED", "LINK REGISTERED":
@@ -308,6 +306,16 @@ func (m *Modem) handleCmd(c string) {
 			m.handleConnected(c)
 			break
 		}
+
+		if strings.HasPrefix(c, "BITRATE") {
+			debugPrint("got BITRATE%q", c)
+			break
+		}
+
+	case "BITRATE":
+		debugPrint("got BITRATE")
+		// nothing to do
+
 		if strings.HasPrefix(c, "REGISTERED") {
 			parts := strings.Split(c, " ")
 			if len(parts) > 1 {
