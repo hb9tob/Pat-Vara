@@ -286,6 +286,9 @@ func (m *Modem) handleCmd(c string) {
 		// nothing to do
 	case "PENDING":
 		// nothing to do
+	case "BITRATE":
+		debugPrint("got BITRATE")
+		// nothing to do
 	case "CANCELPENDING":
 		// nothing to do
 	case "LINK UNREGISTERED", "LINK REGISTERED":
