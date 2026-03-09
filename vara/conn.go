@@ -196,7 +196,7 @@ func (v *conn) Write(b []byte) (int, error) {
 	// small, we end up causing unnecessary IDLE time. Too large and we end up with non-blocking writes and
 	// a very large TX buffer causing Close() to block for a very long time. This magic number seem to work
 	// well enough for both VARA FM and VARA HF.
-	const magicNumber = 25
+	const magicNumber = 100
 
 	bufferTimeout := time.NewTimer(time.Minute)
 	defer bufferTimeout.Stop()
