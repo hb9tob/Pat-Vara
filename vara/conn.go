@@ -205,17 +205,17 @@ func (v *conn) Write(b []byte) (int, error) {
 	// When the link quality is high enough the vara modem estimate the air speed based on the SNR of the previous
 	// transmission and the data in it's buffer.
 	// If the amount of data is lower than a full air frame at the maximum possible speed the Vara modem will do two things :
-	// - It will adapt the max air speed to transmit the content of the content of the buffer
+	// - It will adapt the max air speed to transmit the content of  the buffer
 	// - It will also suppose that there is no more data to transmit for the moment and send a break signal to it's peer
 	//
-	// Then a full link estimation is done for the next packed
+	// Then a full link estimation is done for the next frame
 	// This end to a very sub-optimum speed
 	//
 	// Due to the long interleaving FEC used by the modem the buffer must be filled with at least enough data for the next
-	// air frame, as the modem did not sen BUFFER signal during the TX and need to have enough data to calculate
+	// air frame, as the modem did not send BUFFER signal during the TX and need to have enough data to calculate
 	// the frame with the FEC prior to start TX
 	// This is an attemp to overcome this issue using the last TX speed and the SNR to estimate the air speed
-	// before the start the playload transmission and size the buffer accordingly
+	// before the start of the playload transmission and size the buffer accordingly
 	// The buffer is sized to store 2 air frames around 12 seconds
 
 	const magicNumber = 7
