@@ -353,7 +353,7 @@ func (m *Modem) handleCmd(c string) {
 		if strings.HasPrefix(c, "VERSION") {
 			break
 		}
-		debugPrint("got a vara command I wasn't expecting2: %q", c)
+		debugPrint("got a vara command I wasn't expecting: %q", c)
 	}
 }
 
